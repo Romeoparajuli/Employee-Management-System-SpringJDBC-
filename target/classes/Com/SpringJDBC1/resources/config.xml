@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- DataSource bean configuration -->
+    <!-- The DataSource bean provides the connection to the MySQL database -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+          p:driverClassName="com.mysql.cj.jdbc.Driver" 
+          p:url="jdbc:mysql://localhost:3306/springjdbc" 
+          p:username="root" 
+          p:password="password" /> <!--  MySQL JDBC Driver  ,  JDBC URL of the database  ,Database username ,Database password -->
+
+    <!-- JdbcTemplate bean configuration -->
+    <!-- The JdbcTemplate bean allows Spring to execute SQL queries on the database -->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
+          p:dataSource-ref="dataSource" /> <!-- This injects the DataSource into the JdbcTemplate bean -->
+          
+    <!-- EmployeeDao bean configuration -->
+    <!-- The EmployeeDao bean interacts with the database to perform CRUD operations for the Employee entity -->
+    <bean id="employeeDao" class="Com.SpringJDBC1.Dao.EmployeeDao"
+          p:jdbcTemplate-ref="jdbcTemplate" />  <!-- This injects the JdbcTemplate into the EmployeeDao bean -->
+
+</beans>
