@@ -68,9 +68,9 @@ java -cp target/EmployeeManagementSystem.jar Com.SpringJDBC1.App
   Add a new employee record to the database.
   ```java
   Employee employee = new Employee();
-  employee.setNameString("John Doe");
-  employee.setEmailString("john.doe@example.com");
-  employee.setAddressString("123 Main St");
+  employee.setNameString("Romeo Parajuli");
+  employee.setEmailString("Romeo@example.com");
+  employee.setAddressString("Palpa");
   employee.setDepartmentString("HR");
   employee.setContactnumber(9876543210);
   employee.setSalary(60000);
